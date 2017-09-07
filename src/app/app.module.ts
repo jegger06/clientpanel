@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+// Module Imports
 import { FormsModule } from '@angular/forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 // Router Import
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'add-client', component: AddClientComponent},
+  {path: 'client/:id', component: ClientDetailsComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 

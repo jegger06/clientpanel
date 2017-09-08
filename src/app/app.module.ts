@@ -22,6 +22,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { LoaderComponent } from './components/loader/loader.component';
 // Service Imports
 import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
@@ -62,7 +63,8 @@ export const firebaseConfig = {
     LoginComponent,
     RegisterComponent,
     SettingsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

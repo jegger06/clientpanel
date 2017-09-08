@@ -10,6 +10,7 @@ import { Client } from '../../models/Client';
 export class ClientsComponent implements OnInit {
   clients: any[];
   totalOwed: number;
+  showLoader: boolean = true;
 
   constructor(
     public clientService: ClientService
@@ -17,6 +18,7 @@ export class ClientsComponent implements OnInit {
 
   ngOnInit() {
     this.clientService.getClients().subscribe(clients => {
+      this.showLoader = false;
       this.clients = clients;
       this.getTotalOwed();
     });

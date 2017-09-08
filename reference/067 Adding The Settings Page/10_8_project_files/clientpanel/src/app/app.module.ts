@@ -1,10 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-// Module Imports
+import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
-// Router Import
-import { RouterModule, Routes } from '@angular/router';
 // AngularFire Imports
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -26,27 +24,26 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
-import { SettingsService } from './services/settings.service';
 import { RegisterGuard } from './guards/register.guard';
-import { DashBoardGuard } from './guards/dashboard.guard';
+import { SettingsService } from './services/settings.service';
 
 const appRoutes: Routes = [
-  {path: '', component: DashboardComponent, canActivate:[AuthGuard]},
-  {path: 'register', component: RegisterComponent, canActivate:[RegisterGuard]},
-  {path: 'login', component: LoginComponent, canActivate:[DashBoardGuard]},
-  {path: 'add-client', component: AddClientComponent, canActivate:[AuthGuard]},
-  {path: 'client/:id', component: ClientDetailsComponent, canActivate:[AuthGuard]},
-  {path: 'edit-client/:id', component: EditClientComponent, canActivate:[AuthGuard]},
-  {path: 'settings', component: SettingsComponent, canActivate:[AuthGuard]},
-  {path: '**', component: PageNotFoundComponent}
+  {path:'', component:DashboardComponent, canActivate:[AuthGuard]},
+  {path:'register', component:RegisterComponent, canActivate:[RegisterGuard]},
+  {path:'login', component:LoginComponent},
+  {path:'add-client', component:AddClientComponent, canActivate:[AuthGuard]},
+  {path:'client/:id', component:ClientDetailsComponent, canActivate:[AuthGuard]},
+  {path:'edit-client/:id', component:EditClientComponent, canActivate:[AuthGuard]},
+  {path:'settings', component:SettingsComponent, canActivate:[AuthGuard]},
+  {path:'**', component:PageNotFoundComponent}
 ];
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyDwtK9gzwrsS918-HJ8I1vmxxxk9qqVJfY",
-  authDomain: "clientpanel-8d4ff.firebaseapp.com",
-  databaseURL: "https://clientpanel-8d4ff.firebaseio.com",
-  storageBucket: "clientpanel-8d4ff.appspot.com",
-  messagingSenderId: "1022937819760"
+    apiKey: "AIzaSyATyVKro-cR26OLKR_O78HY8u_P82-mQ3o",
+    authDomain: "clientpanel-e9ae7.firebaseapp.com",
+    databaseURL: "https://clientpanel-e9ae7.firebaseio.com",
+    storageBucket: "clientpanel-e9ae7.appspot.com",
+    messagingSenderId: "479596555240"
 }
 
 @NgModule({
@@ -69,7 +66,7 @@ export const firebaseConfig = {
     FormsModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(firebaseConfig),
-    FlashMessagesModule
+    FlashMessagesModule,
   ],
   providers: [
     AngularFireAuth,
@@ -77,9 +74,8 @@ export const firebaseConfig = {
     ClientService,
     AuthService,
     AuthGuard,
-    SettingsService,
     RegisterGuard,
-    DashBoardGuard
+    SettingsService
   ],
   bootstrap: [AppComponent]
 })
